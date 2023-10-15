@@ -7,6 +7,7 @@ CREATE DATABASE air_traffic;
 
 \c air_traffic
 
+-- Create a table for passengers
 CREATE TABLE passengers
 (
   passenger_id SERIAL PRIMARY KEY,
@@ -14,6 +15,7 @@ CREATE TABLE passengers
   last_name TEXT NOT NULL
 );
 
+-- Create a table for flight information
 CREATE TABLE flights
 (
   flight_id SERIAL PRIMARY KEY,
@@ -24,6 +26,7 @@ CREATE TABLE flights
   arrival_country TEXT NOT NULL
 );
 
+-- Create a table for flight tickets
 CREATE TABLE flight_tickets
 (
   ticket_id SERIAL PRIMARY KEY,
@@ -34,6 +37,7 @@ CREATE TABLE flight_tickets
   arrival_time TIMESTAMP NOT NULL
 );
 
+-- Insert sample data into passengers and flights tables
 INSERT INTO passengers (first_name, last_name)
 VALUES
   ('Jennifer', 'Finch'),
@@ -44,6 +48,7 @@ VALUES
   ('Alvin', 'Leathes'),
   ('Cory', 'Squibbes');
 
+-- Insert sample data into flights table
 INSERT INTO flights (airline_name, departure_city, departure_country, arrival_city, arrival_country)
 VALUES
   ('United Airlines', 'Washington, DC', 'United States', 'Seattle', 'United States'),
@@ -56,6 +61,7 @@ VALUES
   ('American Airlines', 'Charlotte', 'United States', 'New Orleans', 'United States'),
   ('Avianca Brasil', 'Sao Paolo', 'Brazil', 'Santiago', 'Chile');
   
+-- Insert sample data into flight_tickets table
 INSERT INTO flight_tickets (passenger_id, flight_id, seat_number, departure_time, arrival_time)
 VALUES
   (1, 1, '33B', '2018-04-08 09:00:00', '2018-04-08 12:00:00'),
