@@ -7,18 +7,21 @@ CREATE DATABASE music;
 
 \c music
 
+-- Create a table for artists
 CREATE TABLE artists
 (
   artist_id SERIAL PRIMARY KEY,
   artist_name TEXT NOT NULL
 );
 
+-- Create a table for albums
 CREATE TABLE albums
 (
   album_id SERIAL PRIMARY KEY,
   album_name TEXT NOT NULL
 );
 
+-- Create a table for songs
 CREATE TABLE songs
 (
   song_id SERIAL PRIMARY KEY,
@@ -30,6 +33,7 @@ CREATE TABLE songs
   producers TEXT[] NOT NULL
 );
 
+-- Insert sample data into artists and albums tables
 INSERT INTO artists (artist_name)
 VALUES
   ('Hanson'),
@@ -61,6 +65,7 @@ VALUES
   ('Let Go'),
   ('The Writing''s on the Wall');
 
+-- Insert sample data into songs table
 INSERT INTO songs (title, duration_in_seconds, release_date, artist_id, album_id, producers)
 VALUES
   ('MMMBop', 238, '1997-04-15', 1, 1, '{"Dust Brothers", "Stephen Lironi"}'),

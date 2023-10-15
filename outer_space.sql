@@ -7,13 +7,14 @@ CREATE DATABASE outer_space;
 
 \c outer_space
 
+-- Create a table for galaxies
 CREATE TABLE galaxies
 (
   galaxy_id SERIAL PRIMARY KEY,
   name TEXT NOT NULL
 );
 
-
+-- Create a table for stars
 CREATE TABLE stars
 (
   star_id SERIAL PRIMARY KEY,
@@ -21,12 +22,14 @@ CREATE TABLE stars
   galaxy_id INT REFERENCES galaxies(galaxy_id)
 );
 
+-- Create a table for moons
 CREATE TABLE moons
 (
   moon_id SERIAL PRIMARY KEY,
   name TEXT NOT NULL
 );
 
+-- Create a table for planets
 CREATE TABLE planets
 (
   planet_id SERIAL PRIMARY KEY,
@@ -36,6 +39,7 @@ CREATE TABLE planets
   moons_id INT[] REFERENCES moons(moon_id)
 );
 
+-- Insert sample data into galaxies and stars tables
 INSERT INTO galaxies (name)
 VALUES
   ('Milky Way');
@@ -46,6 +50,7 @@ VALUES
   ('Proxima Centauri', 1),
   ('Gliese 876', 1);
 
+-- Insert sample data into moons table
 INSERT INTO moons (name)
 VALUES
   ('The Moon'),
@@ -66,6 +71,7 @@ VALUES
   ('Psamathe'),
   ('Neso');
 
+-- Insert sample data into planets table
 INSERT INTO planets (name, orbital_period_in_years, star_id, moons_id)
 VALUES
   ('Earth', 1.00, 1, ARRAY[1]),
